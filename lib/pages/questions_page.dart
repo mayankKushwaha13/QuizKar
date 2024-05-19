@@ -185,7 +185,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                         padding: const EdgeInsets.all(20),
                         child: Container(
                           child: Text(
-                            data[currentIndex]["question"],
+                            data[currentIndex]["question"].toString().replaceAll("&quot;", "\"").replaceAll("&#039;", "\'"),
                             style: GoogleFonts.aBeeZee(
                               fontSize: 24,
                             ),
