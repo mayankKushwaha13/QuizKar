@@ -15,15 +15,15 @@ class StartButtonIntro extends StatelessWidget {
     return Container(
       transform: Matrix4.translationValues(0, -100, 0),
       child: Ink(
-        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 7),
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 7),
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 154, 208, 194),
+          color: const Color.fromARGB(255, 154, 208, 194),
           borderRadius: BorderRadius.circular(12),
         ),
       
         child: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: ((context) => HomePage())));
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => const HomePage())));
           },
       
           child: Text(
@@ -31,7 +31,7 @@ class StartButtonIntro extends StatelessWidget {
             style: GoogleFonts.lato(
               fontSize: 34,
               fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 38, 80, 115),
+              color: const Color.fromARGB(255, 38, 80, 115),
             ),
           ),
         ),
@@ -56,7 +56,7 @@ class Logo extends StatelessWidget {
             width: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(200),
-              color: Color.fromARGB(255, 241, 250, 218)
+              color: const Color.fromARGB(255, 241, 250, 218)
             ),
           ),
                     

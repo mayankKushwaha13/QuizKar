@@ -25,12 +25,12 @@ class ThanksPage extends StatelessWidget {
     }
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 205, 232, 229),
+        backgroundColor: const Color.fromARGB(255, 205, 232, 229),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              MyAppBar(),
-              Stack(
+              const MyAppBar(),
+              const Stack(
                 alignment: Alignment.center,
                 children: [
                   CircularDesign(
@@ -78,7 +78,7 @@ class ThanksPage extends StatelessWidget {
                         style: GoogleFonts.ptSans(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 38, 80, 115),
+                          color: const Color.fromARGB(255, 38, 80, 115),
                         ),
                       ),
                     ),

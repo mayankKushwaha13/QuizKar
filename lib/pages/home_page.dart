@@ -10,12 +10,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 205, 232, 229),
+        backgroundColor: const Color.fromARGB(255, 205, 232, 229),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              MyAppBar(),
-              Stack(
+              const MyAppBar(),
+              const Stack(
                 children: [
                   CircularDesign(
                     height: 200,
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
                   quizHomePageWidget(),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Container(
@@ -46,11 +46,11 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
+              const Padding(
+                padding: EdgeInsets.symmetric(
                   horizontal: 40,
                   vertical: 20,
                 ),

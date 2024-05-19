@@ -62,7 +62,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
   }
 
   startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (seconds > 0)
           seconds--;
@@ -82,7 +82,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 205, 232, 229),
+        backgroundColor: const Color.fromARGB(255, 205, 232, 229),
         body: FutureBuilder(
             future: quiz,
             builder: (context, snapshot) {
@@ -97,7 +97,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 }
                 if (seconds == 0 && currentIndex < data.length - 1) {
                   isClicked = true;
-                  Future.delayed(Duration(milliseconds: 100), () {
+                  Future.delayed(const Duration(milliseconds: 100), () {
                     currentIndex++;
                     isLoaded = false;
                     isClicked = false;
@@ -107,7 +107,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                   });
                 } else if (seconds == 0 && currentIndex == data.length - 1) {
                   isClicked = true;
-                  Future.delayed(Duration(milliseconds: 100), () {
+                  Future.delayed(const Duration(milliseconds: 100), () {
                     // Navigator.pushAndRemoveUntil(
                     //   context,
                     //   MaterialPageRoute(builder: (context) => ThanksPage()),
@@ -121,20 +121,18 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 return SingleChildScrollView(
                   child: Column(
                     children: [
-                      MyAppBar(),
+                      const MyAppBar(),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              child: Text(
-                                "Score : ${score}",
-                                style: GoogleFonts.ptSans(
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold,
-                                  color: const Color.fromARGB(255, 38,80,115),
-                                ),
+                            Text(
+                              "Score : ${score}",
+                              style: GoogleFonts.ptSans(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                color: const Color.fromARGB(255, 38,80,115),
                               ),
                             ),
                             Stack(
@@ -144,7 +142,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                   "$seconds",
                                   style: GoogleFonts.acme(
                                     fontSize: 30,
-                                    color: Color.fromARGB(255, 38, 80, 115),
+                                    color: const Color.fromARGB(255, 38, 80, 115),
                                   ),
                                 ),
                                 Container(
@@ -152,7 +150,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                   width: 50,
                                   child: CircularProgressIndicator(
                                     value: seconds / 60,
-                                    valueColor: AlwaysStoppedAnimation(
+                                    valueColor: const AlwaysStoppedAnimation(
                                         Color.fromARGB(255, 38, 80, 115)),
                                   ),
                                 )
@@ -161,7 +159,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Padding(
@@ -201,7 +199,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                   setState(() {
                                     clicking();
                                     if (currentIndex < data.length - 1) {
-                                      Future.delayed(Duration(milliseconds: 100), () {
+                                      Future.delayed(const Duration(milliseconds: 100), () {
                                         currentIndex++;
                                         isLoaded = false;
                                         isClicked = false;
@@ -233,7 +231,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                         startTimer();
                                       });
                                     } else {
-                                      Future.delayed(Duration(milliseconds: 100), () {
+                                      Future.delayed(const Duration(milliseconds: 100), () {
                                         // Navigator.pushAndRemoveUntil(
                                         //   context,
                                         //   MaterialPageRoute(
@@ -247,8 +245,8 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                   });
                                 },
                                 child: Container(
-                                  margin: EdgeInsets.only(bottom: 20),
-                                  padding: EdgeInsets.all(20),
+                                  margin: const EdgeInsets.only(bottom: 20),
+                                  padding: const EdgeInsets.all(20),
                                   alignment: Alignment.center,
                                   width:
                                       MediaQuery.of(context).size.width - 100,
@@ -256,8 +254,8 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                     color: isClicked
                                         ? options[index].toString() ==
                                                 ans.toString()
-                                            ? Color.fromARGB(255, 51, 192, 51)
-                                            : Color.fromARGB(200, 255, 44, 44)
+                                            ? const Color.fromARGB(255, 51, 192, 51)
+                                            : const Color.fromARGB(200, 255, 44, 44)
                                         : Colors.white,
                                     borderRadius: BorderRadius.circular(12),
                                   ),
@@ -275,7 +273,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                   ),
                 );
               } else {
-                return Center(
+                return const Center(
                     child: CircularProgressIndicator(
                   valueColor:
                       AlwaysStoppedAnimation(Color.fromARGB(255, 38, 80, 115)),

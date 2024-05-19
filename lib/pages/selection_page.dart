@@ -51,17 +51,17 @@ class _SelectionPageState extends State<SelectionPage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 205, 232, 229),
+        backgroundColor: const Color.fromARGB(255, 205, 232, 229),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              MyAppBar(),
+              const MyAppBar(),
               Stack(
                 children: [
-                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: 340,),
-                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: 380, y: 100,),
-                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: -120, y: 300,),
-                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: -160, y: 200,),
+                  const CircularDesign(height: 200, width: 200, opacity: 0.4,x: 340,),
+                  const CircularDesign(height: 200, width: 200, opacity: 0.4,x: 380, y: 100,),
+                  const CircularDesign(height: 200, width: 200, opacity: 0.4,x: -120, y: 300,),
+                  const CircularDesign(height: 200, width: 200, opacity: 0.4,x: -160, y: 200,),
                   Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +78,7 @@ class _SelectionPageState extends State<SelectionPage> {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           transform: Matrix4.translationValues(0, 50, 0),
                           child: Text(widget.quizCategory,
                           style: GoogleFonts.aBeeZee(
@@ -130,7 +130,7 @@ class _SelectionPageState extends State<SelectionPage> {
                     ),
                   ),
 
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Column(
                     children: [
                       Container(
@@ -142,7 +142,7 @@ class _SelectionPageState extends State<SelectionPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       
                       Container(
                         width: 300,
@@ -157,7 +157,7 @@ class _SelectionPageState extends State<SelectionPage> {
                             ),
                           ),
                           value: selectedDiff,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: "easy",
                               child: Text("Easy", style: TextStyle(fontSize: 18),),
@@ -182,7 +182,7 @@ class _SelectionPageState extends State<SelectionPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Column(
                     children: [
                       Container(
@@ -194,7 +194,7 @@ class _SelectionPageState extends State<SelectionPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       Container(
                         width: 300,
                         decoration: BoxDecoration(
@@ -208,7 +208,7 @@ class _SelectionPageState extends State<SelectionPage> {
                             ),
                           ),
                           value: selectedType,
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               value: "multiple",
                               child: Text("Multiple Choice", style: TextStyle(fontSize: 18),),
@@ -229,10 +229,10 @@ class _SelectionPageState extends State<SelectionPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30,),
+                  const SizedBox(height: 30,),
                   Ink(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 38, 80, 115),
+                      color: const Color.fromARGB(255, 38, 80, 115),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: InkWell(
@@ -240,7 +240,7 @@ class _SelectionPageState extends State<SelectionPage> {
                         if (amount.text.toString() == "" || amount.text.toString() == "0")
                         {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Enter the amount of questions!",
+                            const SnackBar(content: Text("Enter the amount of questions!",
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -268,7 +268,7 @@ class _SelectionPageState extends State<SelectionPage> {
                         child: Text("Proceed",
                         style: GoogleFonts.aBeeZee(
                           fontSize: 32,
-                          color: Color.fromARGB(255, 241, 250, 218),
+                          color: const Color.fromARGB(255, 241, 250, 218),
                         ),
                         ),
                       ),
