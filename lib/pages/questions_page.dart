@@ -25,7 +25,8 @@ class QuestionsPage extends StatefulWidget {
 }
 
 class _QuestionsPageState extends State<QuestionsPage> {
-  int seconds = 10;
+  int score = 0;
+  int seconds = 60;
   Timer? timer;
 
   late Future quiz;
@@ -85,7 +86,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
         body: FutureBuilder(
             future: quiz,
             builder: (context, snapshot) {
-              if (snapshot.hasData) {
+              if (snapshot.hasData && snapshot.data['response_code'] == 0) {
                 var data = snapshot.data['results'];
 
                 if (!isLoaded) {
@@ -94,10 +95,9 @@ class _QuestionsPageState extends State<QuestionsPage> {
                   options.shuffle();
                   isLoaded = true;
                 }
-
                 if (seconds == 0 && currentIndex < data.length - 1) {
                   isClicked = true;
-                  Future.delayed(Duration(seconds: 1), () {
+                  Future.delayed(Duration(milliseconds: 100), () {
                     currentIndex++;
                     isLoaded = false;
                     isClicked = false;
@@ -107,15 +107,15 @@ class _QuestionsPageState extends State<QuestionsPage> {
                   });
                 } else if (seconds == 0 && currentIndex == data.length - 1) {
                   isClicked = true;
-                  Future.delayed(Duration(seconds: 1), () {
+                  Future.delayed(Duration(milliseconds: 100), () {
                     // Navigator.pushAndRemoveUntil(
                     //   context,
                     //   MaterialPageRoute(builder: (context) => ThanksPage()),
                     //   (route) => route.isFirst,
                     // );
-                    return ThanksPage();
+                    return ThanksPage(score: score, total: data.length*10,);
                   });
-                  return ThanksPage();
+                  return ThanksPage(score: score, total: data.length*10,);
                 }
 
                 return SingleChildScrollView(
@@ -127,20 +127,16 @@ class _QuestionsPageState extends State<QuestionsPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Ink(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
+                            Container(
+                              child: Text(
+                                "Score : ${score}",
+                                style: GoogleFonts.ptSans(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color.fromARGB(255, 38,80,115),
                                 ),
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Icon(
-                                    Icons.cancel,
-                                    size: 30,
-                                    color: Color.fromARGB(255, 45, 149, 150),
-                                  ),
-                                )),
+                              ),
+                            ),
                             Stack(
                               alignment: Alignment.center,
                               children: [
@@ -205,16 +201,39 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                   setState(() {
                                     clicking();
                                     if (currentIndex < data.length - 1) {
-                                      Future.delayed(Duration(seconds: 1), () {
+                                      Future.delayed(Duration(milliseconds: 100), () {
                                         currentIndex++;
                                         isLoaded = false;
                                         isClicked = false;
                                         timer!.cancel();
+                                        if (options[index].toString()==ans.toString())
+                                        {
+                                          if (seconds >=55)
+                                          {
+                                            score += 10;
+                                          }
+                                          else if (seconds >= 50)
+                                          {
+                                            score += 9;
+                                          }
+                                          else if (seconds >=40)
+                                          {
+                                            score += 8;
+                                          }
+                                          else if (seconds >=30)
+                                          {
+                                            score += 7;
+                                          }
+                                          else 
+                                          {
+                                            score += 6;
+                                          }
+                                        }
                                         seconds = 61;
                                         startTimer();
                                       });
                                     } else {
-                                      Future.delayed(Duration(seconds: 2), () {
+                                      Future.delayed(Duration(milliseconds: 100), () {
                                         // Navigator.pushAndRemoveUntil(
                                         //   context,
                                         //   MaterialPageRoute(
@@ -237,13 +256,13 @@ class _QuestionsPageState extends State<QuestionsPage> {
                                     color: isClicked
                                         ? options[index].toString() ==
                                                 ans.toString()
-                                            ? Colors.green
-                                            : Colors.red
+                                            ? Color.fromARGB(255, 51, 192, 51)
+                                            : Color.fromARGB(200, 255, 44, 44)
                                         : Colors.white,
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Text(
-                                    options[index].toString(),
+                                    options[index].toString().replaceAll("&quot;", "\"").replaceAll("&#039;", "\'"),
                                     style: GoogleFonts.aBeeZee(
                                       fontSize: 22,
                                     ),

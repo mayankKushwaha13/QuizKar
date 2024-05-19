@@ -58,14 +58,16 @@ class _SelectionPageState extends State<SelectionPage> {
               MyAppBar(),
               Stack(
                 children: [
-                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: -200,),
-                  CircularDesign(height: 300, width: 300, opacity: 0.4, x: -250,y: 100,),
+                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: 340,),
+                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: 380, y: 100,),
+                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: -120, y: 300,),
+                  CircularDesign(height: 200, width: 200, opacity: 0.4,x: -160, y: 200,),
                   Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          transform: Matrix4.translationValues(0, 100, 0),
+                          transform: Matrix4.translationValues(0, 40, 0),
                           child: Text(
                             "Selected Category :",
                             textAlign: TextAlign.center,
@@ -77,12 +79,13 @@ class _SelectionPageState extends State<SelectionPage> {
                         ),
                         Container(
                           padding: EdgeInsets.all(8),
-                          transform: Matrix4.translationValues(0, 110, 0),
+                          transform: Matrix4.translationValues(0, 50, 0),
                           child: Text(widget.quizCategory,
                           style: GoogleFonts.aBeeZee(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255,38,80,115)
+                            // color: Color.fromARGB(255,38,80,115)
+                            color: Colors.red.shade900,
                           ),
                           ),
                         )
@@ -127,7 +130,7 @@ class _SelectionPageState extends State<SelectionPage> {
                     ),
                   ),
 
-                  SizedBox(height: 30,),
+                  SizedBox(height: 20,),
                   Column(
                     children: [
                       Container(
@@ -139,6 +142,7 @@ class _SelectionPageState extends State<SelectionPage> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 20,),
                       
                       Container(
                         width: 300,
@@ -178,7 +182,7 @@ class _SelectionPageState extends State<SelectionPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(height: 20,),
                   Column(
                     children: [
                       Container(
@@ -190,7 +194,7 @@ class _SelectionPageState extends State<SelectionPage> {
                           ),
                         ),
                       ),
-                      
+                      SizedBox(height: 20,),
                       Container(
                         width: 300,
                         decoration: BoxDecoration(
@@ -227,9 +231,8 @@ class _SelectionPageState extends State<SelectionPage> {
                   ),
                   SizedBox(height: 30,),
                   Ink(
-                    padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: Colors.yellow.shade100,
+                      color: Color.fromARGB(255, 38, 80, 115),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: InkWell(
@@ -243,7 +246,7 @@ class _SelectionPageState extends State<SelectionPage> {
                             ),
                             ),
                             behavior: SnackBarBehavior.floating,
-                            margin: EdgeInsets.symmetric(vertical: 20),
+                            margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                             )
                           );
                         }
@@ -260,11 +263,14 @@ class _SelectionPageState extends State<SelectionPage> {
                         );
                         }
                       },
-                      child: Text("Proceed",
-                      style: GoogleFonts.aBeeZee(
-                        fontSize: 32,
-                        color: Colors.black,
-                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Text("Proceed",
+                        style: GoogleFonts.aBeeZee(
+                          fontSize: 32,
+                          color: Color.fromARGB(255, 241, 250, 218),
+                        ),
+                        ),
                       ),
                     ),
                   )
