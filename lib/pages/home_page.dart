@@ -82,8 +82,8 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         QuizCategoryWidget(
-                          categoryImage: "maths.png",
-                          categoryName: "Maths",
+                          categoryImage: "animals.png",
+                          categoryName: "Animals",
                         ),
                         SizedBox(
                           width: 30,

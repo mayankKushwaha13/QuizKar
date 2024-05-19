@@ -24,9 +24,9 @@ class _SelectionPageState extends State<SelectionPage> {
     {
       categoryNum = "11";
     }
-    else if (widget.quizCategory == "Maths")
+    else if (widget.quizCategory == "Animals")
     {
-      categoryNum = "19";
+      categoryNum = "27";
     }
     else if (widget.quizCategory == "Music")
     {
