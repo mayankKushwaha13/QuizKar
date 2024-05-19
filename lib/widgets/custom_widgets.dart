@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trivia_quiz_app/pages/selection_page.dart';
 
 class CircularDesign extends StatelessWidget {
   final double x;
@@ -75,12 +76,10 @@ class MyAppBar extends StatelessWidget {
 class QuizCategoryWidget extends StatelessWidget {
   final String categoryImage;
   final String categoryName;
-  final VoidCallback onTap;
   const QuizCategoryWidget({
     super.key,
     required this.categoryImage,
     required this.categoryName,
-    required this.onTap,
   });
 
   @override
@@ -98,7 +97,7 @@ class QuizCategoryWidget extends StatelessWidget {
             )
           ]),
       child: InkWell(
-        onTap: onTap,
+        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SelectionPage(quizCategory: categoryName,))),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
